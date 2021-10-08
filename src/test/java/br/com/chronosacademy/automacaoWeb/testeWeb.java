@@ -1,27 +1,26 @@
 package br.com.chronosacademy.automacaoWeb;
 
+import br.com.chronosacademy.core.Driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class testeWeb {
 
-    ChromeDriver driver;
+    WebDriver driver;
+    Driver driverWeb;
 
     @Before
-
     public void inicializaTeste() {
+        driverWeb = new Driver("ie");
+        driver = driverWeb.getDriver();
 
-        WebDriverManager.chromedriver().setup();
-
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.get("https://www.chronosacademy.com.br");
     }
     @Test
